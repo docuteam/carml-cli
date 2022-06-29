@@ -267,7 +267,7 @@ public class Main
 		if(System.in.available() > 0) {
 			mapper.bindInputStream("stdin", System.in);			
 			Model m = mapper.map(mapping);
-			Rio.write(m, System.out, RDFFormat.NQUADS);
+			Rio.write(m, System.out, determineRdfFormat(Main.outputFormat));
 		} else if(useStream){
 			mapper.bindInputStream(inputStream);
 			try {
